@@ -13,38 +13,40 @@ npm install --save vue-convert-model
 
 # Example
 
-Include the module for the [`input`](https://developer.mozilla.org/en-US/docs/Web/Events/input) event to register the custom directive `v-resize-on-input`:
+Include the component:
 
 ```javascript
 import Vue from 'vue'
-import VueResizeOnEvent from 'vue-resize-on-event'
+import VueConvertModel from 'vue-convert-model'
 
 export default {
-   mixins: [
-     VueResizeOnEvent( 'input' ), //registers directive v-resize-on-input
-   ],
+  components: {
+    VueConvertModel,
+  },
 
-   data() {
+  data() {
      return {
        text: '',
      }
    },
- }
+
+  methods: {
+    upperCase( x ) {
+      return (x || '').toUpperCase()
+    },
+  },
+}
 ```
 
 
 ## Usage
 
-Add attribute `v-resize-on-input` to a `textarea` element to have it resize automatically when its value is changed interactively.
-
 ```html
 <template>
-  <div>
-    <textarea
-      v-model="text"
-      v-resize-on-input>
+  <vue-convert-model v-model="text" :converter="upperCase">
+    <textarea>
     </textarea>
-  </div>
+  </vue-convert-model>
 </template>
 ```
 
