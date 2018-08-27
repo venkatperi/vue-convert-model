@@ -1,6 +1,6 @@
 {
   "name": "vue-convert-model",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Transforms data to/from a vue component's model",
   "author": "Venkat Peri <venkatperi@gmail.com>",
   "main": "dist/VueConvertModel.min.js",
