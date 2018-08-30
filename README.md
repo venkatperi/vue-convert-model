@@ -1,10 +1,14 @@
-# vue-resize-on-event
+# vue-convert-model
 
-![npm](https://img.shields.io/npm/v/vue-resize-on-event.svg) 
+![npm](https://img.shields.io/npm/v/vue-convert-model.svg)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-VueJS renderless component that wraps a component with a model (e.g. `input` or `textarea`) and transforms data to/from the underlying component's model with a given conversion function.
- 
+`vue-convert-model` is a [Vue](www.vuejs.org) component that transforms data to/from a child component's model.
+
+`vue-convert-model` accepts a converter function and exposes a vue model (`value` property & `input` event). Data sent to the model (via `value`) is transformed with the converter function before it is sent to the child component. User input (via the `input` event) sent to the child component is similarly transformed before it is emitted by `vue-convert-model`.
+
+`vue-convert-model` is a [renderless](https://adamwathan.me/renderless-components-in-vuejs/) component.
+
 # Installation
 
 ```
@@ -44,7 +48,7 @@ export default {
 ```html
 <template>
   <vue-convert-model v-model="text" :converter="upperCase">
-    <textarea>
+    <textarea> <-- note: model available through its parent -->
     </textarea>
   </vue-convert-model>
 </template>
